@@ -6,17 +6,17 @@
     <title>Ben Thompson | Application Architect</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #0f172a;
             --card-bg: #1e293b;
             --text-main: #94a3b8;
             --text-bright: #f8fafc;
-            --accent-green: #22c55e;
-            --accent-cyan: #38bdf8;
+            --accent-blue: #38bdf8;
             --border-color: #334155;
-            --font-stack: 'JetBrains Mono', monospace;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
         }
 
         * {
@@ -28,15 +28,15 @@
         body {
             background-color: var(--bg-color);
             color: var(--text-main);
-            font-family: var(--font-stack);
+            font-family: var(--font-sans);
             line-height: 1.6;
-            padding: 2rem 1rem;
-            max-width: 900px;
+            padding: 3rem 1.5rem;
+            max-width: 850px;
             margin: 0 auto;
         }
 
         a {
-            color: var(--accent-cyan);
+            color: var(--accent-blue);
             text-decoration: none;
         }
 
@@ -44,58 +44,50 @@
             text-decoration: underline;
         }
 
-        .terminal-header {
-            color: var(--accent-green);
-            font-size: 0.85rem;
-            margin-bottom: 1.5rem;
+        header {
+            margin-bottom: 2.5rem;
         }
 
         h1 {
             color: var(--text-bright);
-            font-size: 2.2rem;
+            font-size: 2.25rem;
             font-weight: 700;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.025em;
+            margin-bottom: 0.25rem;
         }
 
-        h2 {
-            color: var(--accent-cyan);
+        .subtitle {
+            color: var(--accent-blue);
             font-size: 1.1rem;
             font-weight: 500;
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.5rem;
         }
 
         .location {
             font-size: 0.9rem;
             color: var(--text-main);
-            margin-bottom: 2rem;
         }
 
         .section-title {
             color: var(--text-bright);
             font-size: 1.1rem;
+            font-weight: 600;
             margin: 2.5rem 0 1rem 0;
-            border-bottom: 1px dashed var(--border-color);
-            padding-bottom: 0.5rem;
+            letter-spacing: -0.01em;
         }
 
         .container {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 4px;
+            border-radius: 6px;
             padding: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .command-line {
-            color: var(--accent-green);
-            font-weight: 500;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1.25rem;
         }
 
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 1.5rem;
+            gap: 1.25rem;
         }
 
         @media (min-width: 640px) {
@@ -115,85 +107,121 @@
         }
 
         ul li::before {
-            content: ">";
+            content: "•";
             position: absolute;
             left: 0;
-            color: var(--accent-cyan);
+            color: var(--accent-blue);
         }
 
         .case-card {
-            border-left: 3px solid var(--accent-cyan);
+            border-left: 3px solid var(--accent-blue);
         }
 
         .case-title {
             color: var(--text-bright);
-            font-weight: 700;
+            font-weight: 600;
+            font-size: 1rem;
             margin-bottom: 0.5rem;
         }
 
-        .metric {
-            color: var(--accent-green);
-            font-weight: 700;
+        .code-highlight {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--accent-blue);
+            background-color: rgba(56, 189, 248, 0.1);
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .role {
+            color: var(--text-bright);
+            font-weight: 500;
+        }
+
+        .company {
+            color: var(--text-main);
+            font-size: 0.9rem;
+        }
+
+        .date {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-blue);
+            white-space: nowrap;
         }
 
         .btn-group {
             display: flex;
             flex-wrap: wrap;
             gap: 1rem;
-            margin-top: 2rem;
+            margin-top: 2.5rem;
         }
 
         .btn {
             background-color: var(--card-bg);
-            border: 1px solid var(--accent-cyan);
+            border: 1px solid var(--border-color);
             color: var(--text-bright);
-            padding: 0.75rem 1.25rem;
-            font-family: var(--font-stack);
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
             font-size: 0.9rem;
+            font-weight: 500;
             cursor: pointer;
             transition: all 0.2s ease;
         }
 
         .btn:hover {
-            background-color: var(--accent-cyan);
-            color: var(--bg-color);
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
             text-decoration: none;
         }
 
-        .footer {
-            margin-top: 3rem;
-            font-size: 0.8rem;
+        footer {
+            margin-top: 4rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.85rem;
+            color: var(--text-main);
             text-align: center;
-            color: var(--border-color);
         }
     </style>
 </head>
 <body>
 
-    <div class="terminal-header">
-        // SYSTEM STATUS: ONLINE<br>
-        // ARCHITECTURE_PORTFOLIO.SYS
-    </div>
-
-    <h1>BEN THOMPSON</h1>
-    <h2>Principal Application Architect | D365 Sales/CE & Power Platform</h2>
-    <div class="location">Minneapolis, MN | Remote</div>
+    <header>
+        <h1>BEN THOMPSON</h1>
+        <div class="subtitle">Principal Application Architect | D365 Sales/CE & Power Platform</div>
+        <div class="location">Minneapolis, MN | Remote</div>
+    </header>
 
     <div class="container">
-        <div class="command-line">$ cat /about/architecture_philosophy.txt</div>
-        <p>Application Architect with 12+ years of hands-on experience engineering, extending, and scaling Microsoft enterprise ecosystems[cite: 3]. Specialized in high-volume Dataverse integrations, custom plugin development (C#), and bridging enterprise business requirements with maintainable software architecture[cite: 3].</p>
+        <p>Application Architect with 12+ years of experience engineering, extending, and scaling Microsoft enterprise ecosystems[cite: 3]. Specialized in high-volume Dataverse integrations, custom C# plugin development, and bridging enterprise business requirements with maintainable platform architecture[cite: 3].</p>
         <br>
         <ul>
-            <li><strong>Ecosystem Scale:</strong> Supporting 4,500+ global active users[cite: 3].</li>
+            <li><strong>Ecosystem Scale:</strong> Directing technical architecture supporting 4,500+ active global users[cite: 3].</li>
             <li><strong>Primary Stack:</strong> Dynamics 365 (Sales/CE), Power Apps, Power Automate, SSIS, KingswaySoft, C#, JavaScript[cite: 3].</li>
-            <li><strong>Core Focus:</strong> High-throughput data pipelines, platform governance, and eliminating technical debt[cite: 3].</li>
+            <li><strong>Core Focus:</strong> High-throughput data pipelines, platform governance, and technical debt reduction[cite: 3].</li>
         </ul>
     </div>
 
-    <div class="section-title">$ list --skills --matrix</div>
+    <div class="section-title">Technical Expertise</div>
     <div class="grid-2">
         <div class="container">
-            <div class="command-line">$ list --skills --platform</div>
+            <div class="case-title">Platform & Architecture</div>
             <ul>
                 <li>D365 CE / Power Apps (Model-Driven)[cite: 3]</li>
                 <li>C# Plugins & JavaScript Extensions[cite: 3]</li>
@@ -202,54 +230,73 @@
             </ul>
         </div>
         <div class="container">
-            <div class="command-line">$ list --skills --data</div>
+            <div class="case-title">Data & Integration</div>
             <ul>
                 <li>SSIS & KingswaySoft CRM Adapters[cite: 3]</li>
                 <li>SQL Server & Dataverse Telemetry[cite: 3]</li>
                 <li>Power BI & Custom Reporting[cite: 3]</li>
-                <li>Storage Recovery & Query Optimization[cite: 3]</li>
+                <li>Storage Recovery & Performance Optimization[cite: 3]</li>
             </ul>
         </div>
     </div>
 
-    <div class="section-title">$ grep -i "high_impact_projects" /logs/</div>
+    <div class="section-title">Key Technical Achievements</div>
 
     <div class="container case-card">
-        <div class="case-title">[CASE_01] High-Throughput Synchronization Engine</div>
-        <p><strong>Scope:</strong> Engineered a hybrid sync engine leveraging SSIS and the CRM SDK to process high-volume campaign member mappings[cite: 3].</p>
-        <p><strong>Throughput:</strong> Scaled execution capacity to <span class="metric">>1,000,000 records/hour</span>[cite: 3].</p>
+        <div class="case-title">High-Throughput Synchronization Engine</div>
+        <p>Engineered a hybrid synchronization engine leveraging SSIS and the CRM SDK to process high-volume campaign member mappings, achieving an execution capacity of <span class="code-highlight">>1,000,000 records/hour</span>[cite: 3].</p>
     </div>
 
     <div class="container case-card">
-        <div class="case-title">[CASE_02] Dataverse Cloud Storage Recovery</div>
-        <p><strong>Scope:</strong> Executed telemetry analysis to isolate database bloat and design systemic data retention and cleanup routines[cite: 3].</p>
-        <p><strong>Metric:</strong> Recovered <span class="metric">200+ GB</span> of high-cost cloud storage capacity[cite: 3].</p>
+        <div class="case-title">Dataverse Cloud Storage Recovery</div>
+        <p>Executed deep database telemetry analysis to isolate platform bloat and establish systemic data retention routines, successfully recovering <span class="code-highlight">200+ GB</span> of high-cost cloud storage[cite: 3].</p>
     </div>
 
     <div class="container case-card">
-        <div class="case-title">[CASE_03] Digital SOW Execution Framework</div>
-        <p><strong>Scope:</strong> Designed a custom model-driven application integrating D365 directly with DocuSign for automated document creation and signature tracking[cite: 3].</p>
-        <p><strong>Metric:</strong> Streamlined sales operations and eliminated manual data entry[cite: 3].</p>
+        <div class="case-title">Digital Scope of Work Framework</div>
+        <p>Architected a custom model-driven application integrated directly with DocuSign to automate electronic document generation and signature workflows for commercial sales operations[cite: 3].</p>
     </div>
 
-    <div class="section-title">$ git log --oneline --graph</div>
+    <div class="section-title">Career Progression</div>
     <div class="container">
-        <ul>
-            <li><strong>[2026-PRESENT]</strong> Application Architect @ Encore Global[cite: 3]</li>
-            <li><strong>[2022-2026]</strong> Senior CRM Technical Analyst @ Encore Global[cite: 3]</li>
-            <li><strong>[2021-2022]</strong> Senior Developer @ Stoneridge Software[cite: 3]</li>
-            <li><strong>[2014-2021]</strong> Senior Support Services Architect @ PowerObjects[cite: 3]</li>
-        </ul>
+        <div class="timeline-item">
+            <div>
+                <div class="role">Application Architect, Platform (D365)</div>
+                <div class="company">Encore Global</div>
+            </div>
+            <div class="date">2026 – Present</div>
+        </div>
+        <div class="timeline-item">
+            <div>
+                <div class="role">Senior CRM Technical Analyst</div>
+                <div class="company">Encore Global</div>
+            </div>
+            <div class="date">2022 – 2026</div>
+        </div>
+        <div class="timeline-item">
+            <div>
+                <div class="role">Senior Developer</div>
+                <div class="company">Stoneridge Software</div>
+            </div>
+            <div class="date">2021 – 2022</div>
+        </div>
+        <div class="timeline-item">
+            <div>
+                <div class="role">Senior Support Services Architect & Data Specialist</div>
+                <div class="company">PowerObjects, an HCL Company</div>
+            </div>
+            <div class="date">2014 – 2021</div>
+        </div>
     </div>
 
     <div class="btn-group">
-        <a href="mailto:itservices.ben@gmail.com" class="btn">[ $ mailto:itservices.ben@gmail.com ]</a>[cite: 3]
-        <a href="https://linkedin.com/in/ben-thompson-20a3a961" target="_blank" class="btn">[ $ open linkedin.com ]</a>[cite: 3]
+        <a href="mailto:itservices.ben@gmail.com" class="btn">Get in Touch</a>[cite: 3]
+        <a href="https://linkedin.com/in/ben-thompson-20a3a961" target="_blank" class="btn">LinkedIn Profile</a>[cite: 3]
     </div>
 
-    <div class="footer">
-        // END OF TRANSMISSION
-    </div>
+    <footer>
+        © Ben Thompson • Application Architecture Portfolio
+    </footer>
 
 </body>
 </html>
