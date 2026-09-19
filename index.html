@@ -9,13 +9,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #f8fafc;
-            --surface-color: #ffffff;
-            --primary-navy: #0f172a;
-            --accent-blue: #0284c7;
-            --text-main: #334155;
-            --text-muted: #64748b;
-            --border-color: #e2e8f0;
+            --bg-color: #0f172a;
+            --surface-color: #1e293b;
+            --text-bright: #f8fafc;
+            --text-main: #94a3b8;
+            --accent-blue: #38bdf8;
+            --border-color: #334155;
             --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
@@ -42,7 +41,7 @@
         }
 
         h1 {
-            color: var(--primary-navy);
+            color: var(--text-bright);
             font-size: 2.25rem;
             font-weight: 700;
             letter-spacing: -0.025em;
@@ -56,13 +55,13 @@
         }
 
         .location {
-            color: var(--text-muted);
+            color: var(--text-main);
             font-size: 0.95rem;
             margin-top: 0.5rem;
         }
 
         .section-title {
-            color: var(--primary-navy);
+            color: var(--text-bright);
             font-size: 1.2rem;
             font-weight: 700;
             margin: 2.5rem 0 1rem 0;
@@ -76,7 +75,6 @@
             border-radius: 8px;
             padding: 1.75rem;
             margin-bottom: 1.25rem;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
 
         .grid-2 {
@@ -112,7 +110,7 @@
         }
 
         .card-header {
-            color: var(--primary-navy);
+            color: var(--text-bright);
             font-size: 1.05rem;
             font-weight: 600;
             margin-bottom: 0.75rem;
@@ -120,13 +118,14 @@
 
         .metric-badge {
             display: inline-block;
-            background-color: #e0f2fe;
-            color: #0369a1;
+            background-color: rgba(56, 189, 248, 0.1);
+            color: var(--accent-blue);
+            border: 1px solid var(--accent-blue);
             font-weight: 600;
             font-size: 0.85rem;
             padding: 0.2rem 0.6rem;
             border-radius: 4px;
-            margin-top: 0.5rem;
+            margin-top: 0.75rem;
         }
 
         .timeline-item {
@@ -142,13 +141,13 @@
         }
 
         .role-title {
-            color: var(--primary-navy);
+            color: var(--text-bright);
             font-weight: 600;
             font-size: 1rem;
         }
 
         .company-name {
-            color: var(--text-muted);
+            color: var(--text-main);
             font-size: 0.95rem;
         }
 
@@ -166,29 +165,29 @@
 
         .btn {
             display: inline-block;
-            background-color: var(--primary-navy);
-            color: #ffffff;
+            background-color: var(--accent-blue);
+            color: #0f172a;
             padding: 0.75rem 1.5rem;
             border-radius: 6px;
-            font-weight: 500;
+            font-weight: 600;
             font-size: 0.95rem;
             text-decoration: none;
-            transition: background-color 0.2s ease;
+            transition: opacity 0.2s ease;
         }
 
         .btn:hover {
-            background-color: var(--accent-blue);
+            opacity: 0.9;
         }
 
         .btn-secondary {
             background-color: var(--surface-color);
-            color: var(--primary-navy);
+            color: var(--text-bright);
             border: 1px solid var(--border-color);
         }
 
         .btn-secondary:hover {
-            background-color: #f1f5f9;
-            color: var(--primary-navy);
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
         }
 
         footer {
@@ -196,7 +195,7 @@
             padding-top: 2rem;
             border-top: 1px solid var(--border-color);
             font-size: 0.85rem;
-            color: var(--text-muted);
+            color: var(--text-main);
             text-align: center;
         }
     </style>
