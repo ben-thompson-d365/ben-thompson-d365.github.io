@@ -284,7 +284,7 @@
     var target = parseFloat(el.dataset.target);
     var suffix = el.dataset.suffix || '';
     if (reduce){ el.textContent = target + suffix; return; }
-    var start = null, dur = 900;
+    var start = null, dur = 700;
     function step(ts){
       if(!start) start = ts;
       var p = Math.min(1, (ts - start) / dur);
@@ -300,14 +300,14 @@
       entries.forEach(function(e){
         if(e.isIntersecting){
           var idx = Array.prototype.indexOf.call(kpis, e.target);
-          animateVal(e.target, idx * 150);
+          animateVal(e.target, idx * 750);
           io.unobserve(e.target);
         }
       });
     }, {threshold:0.6});
     kpis.forEach(function(k){ io.observe(k); });
   } else {
-    kpis.forEach(function(k, i){ animateVal(k, i * 150); });
+    kpis.forEach(function(k, i){ animateVal(k, i * 750); });
   }
 
 })();
